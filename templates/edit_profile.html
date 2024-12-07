@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактировать Профиль</title>
+    <!-- Подключаем Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Редактирование профиля для {{ current_user.username }}</h2>
+
+        <!-- Карточка редактирования профиля -->
+        <div class="card shadow-lg p-4 bg-white rounded">
+            <div class="card-body">
+                <h5 class="card-title">Редактируйте информацию</h5>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Имя пользователя</label>
+                        <input type="text" class="form-control" id="username" name="username" value="{{ current_user.username }}" required>
+                    </div>
+
+                    <!-- Дополнительные поля можно добавить здесь -->
+                    
+                    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Кнопки для выхода и возврата на профиль -->
+        <div class="mt-4 text-center">
+            <a href="{{ url_for('profile') }}" class="btn btn-secondary">Назад к профилю</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Выйти</a>
+        </div>
+    </div>
+
+    <!-- Подключаем Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
